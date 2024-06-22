@@ -8,3 +8,4 @@ Used by :
 - Litchi, ftp client.
 
 Other programs can use it, please read the how-to and functions calls in the st-guide documentation.
+# libtiniconv.a
