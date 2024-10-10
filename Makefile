@@ -1,7 +1,11 @@
 
-CFLAGS  =  -Wall -O2 -fomit-frame-pointer
+CFLAGS  =  -Wall -O2 -fomit-frame-pointer -Wimplicit-function-declaration
 LDFLAGS = -s
 LDLIBS  = -lldg -lpolarssl -lgem -lz
+
+#
+# create manualy ./build/68000/ and ./build/68020/ and ./build/ColdFire/ folder for the targets to be placed.
+#
 
 TARGET = polarssl.ldg
 
