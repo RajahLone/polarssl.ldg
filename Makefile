@@ -13,7 +13,7 @@ TARGET = polarssl.ldg
 HEADER =
 
 # list C files here
-COBJS = main.c timing_alt.c
+COBJS = main.c
 
 # list assembler files here
 SOBJS =

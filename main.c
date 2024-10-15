@@ -482,7 +482,7 @@ PROC LibFunc[] =
   {"ldg_ssl_free", "void ldg_ssl_free(ssl_context *ssl);\n", ldg_ssl_free}
 };
 
-LDGLIB LibLdg[] = { { 0x0009,  29, LibFunc,  "SSL/TLS functions from mbebTLS", 1} };
+LDGLIB LibLdg[] = { { 0x0009,  29, LibFunc,  "SSL/TLS functions from mbebTLS 1.3.x", 1} };
 
 /* main function: init and memory configuration */
 
