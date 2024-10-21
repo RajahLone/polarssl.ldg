@@ -124,7 +124,7 @@ void CDECL search_tcp_layer()
   else if (xget_cookie(0x5354694BL, NULL)) /* 'STiK' */
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("STinG/STiK detected\n\");
+    (void)Cconws("STinG/STiK detected\n");
 #endif
     used_tcp_layer = TCP_LAYER_STIK;
   }
