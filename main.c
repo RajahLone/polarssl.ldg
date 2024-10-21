@@ -294,7 +294,7 @@ int CDECL my_mintnet_send(void *ctx, const unsigned char *buf, size_t len)
 #if defined(POLARSSL_DEBUG_C)
 char lev[32];
 
-static void CDECL my_debug( void *ctx, int level, const char *str)
+static void CDECL my_debug( void *ctx, int level, const char *msg)
 {
   snprintf(lev, 32, "%d", level);
 
