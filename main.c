@@ -109,7 +109,7 @@ void CDECL search_tcp_layer()
   if (xget_cookie(0x4D694E54L, NULL)) /* 'MiNT' */
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("MiNTnet detected\n\r");
+    (void)Cconws("MiNTnet detected\n");
 #endif
     timing_set_system(0);
     used_tcp_layer = TCP_LAYER_MINTNET;
@@ -117,14 +117,14 @@ void CDECL search_tcp_layer()
   else if (xget_cookie(0x4D616758L, NULL) && xget_cookie(0x53434B4DL, NULL)) /* 'MagX' and 'SCKM' */
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("MagiCNet detected\n\r");
+    (void)Cconws("MagiCNet detected\n");
 #endif
     used_tcp_layer = TCP_LAYER_MINTNET;
   }
   else if (xget_cookie(0x5354694BL, NULL)) /* 'STiK' */
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("STinG/STiK detected\n\r");
+    (void)Cconws("STinG/STiK detected\n\");
 #endif
     used_tcp_layer = TCP_LAYER_STIK;
   }
@@ -137,7 +137,7 @@ short CDECL stick_init()
   if (xget_cookie(0x5354694BL, &cookieval) == 0)   /* 'STiK' */
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("STinG/STiK is not loaded or enabled!\n\r");
+    (void)Cconws("STinG/STiK is not loaded or enabled!\n");
 #endif
     return -1;
   }
@@ -147,7 +147,7 @@ short CDECL stick_init()
   if (strcmp(drivers->magic, MAGIC) != 0)
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("STinG/STiK structures corrupted!\n\r");
+    (void)Cconws("STinG/STiK structures corrupted!\n");
 #endif
     return -1;
   }
@@ -157,7 +157,7 @@ short CDECL stick_init()
   if (tpl == (TPL *)NULL)
   {
 #if defined(POLARSSL_DEBUG_C)
-    (void)Cconws("Transport Driver not found!\n\r");
+    (void)Cconws("Transport Driver not found!\n");
 #endif
     return -1;
   }
@@ -288,6 +288,24 @@ int CDECL my_mintnet_send(void *ctx, const unsigned char *buf, size_t len)
   
   return ret;
 }
+
+/* debug functions */
+
+#if defined(POLARSSL_DEBUG_C)
+char lev[32];
+
+static void CDECL my_debug( void *ctx, int level, const char *str)
+{
+  snprintf(lev, 32, "%d", level);
+
+	(void)Cconws(lev);
+	(void)Cconws(": ");
+  (void)Cconws(msg);
+ 
+  size_t len = strlen(msg);
+  if (len > 1) { if (msg[len - 1] != '\n') { (void)Cconws("\n"); } }
+}
+#endif
 
 /* version */
 
@@ -429,16 +447,6 @@ int CDECL ldg_ssl_close_notify(ssl_context *ssl) { return ssl_close_notify(ssl);
 
 void CDECL ldg_ssl_free(ssl_context *ssl) { return ssl_free(ssl); }
 
-/* debug functions */
-
-#if defined(POLARSSL_DEBUG_C)
-static void CDECL my_debug( void *ctx, int level, const char *str)
-{
-  (void)Cconws(str);
-  (void)Cconws("\r");
-}
-#endif
-
 /* ldg functions table */
 
 PROC LibFunc[] =
@@ -493,7 +501,7 @@ int main(void)
 #if defined(POLARSSL_DEBUG_C)
   (void)Cconws("Polarssl.ldg (");
   (void)Cconws(get_version());
-  (void)Cconws(") debug mode enabled\n\r");
+  (void)Cconws(") debug mode enabled\n");
 
   debug_set_log_mode(POLARSSL_DEBUG_LOG_FULL);
   debug_set_threshold(0); // 0 = nothing -> 3 = full
