@@ -325,9 +325,7 @@ int ldg_entropy_init(entropy_context *ctx, ctr_drbg_context *ctr, const char *ap
 {
   entropy_init(ctx);
   
-  int ret = ctr_drbg_init(ctr, entropy_func, ctx, (const unsigned char *) app_name, strlen(app_name));
-
-  return ret;
+  return ctr_drbg_init(ctr, entropy_func, ctx, (const unsigned char *) app_name, strlen(app_name));
 }
 
 void CDECL ldg_entropy_free(entropy_context *ctx, ctr_drbg_context *ctr)
@@ -482,7 +480,7 @@ PROC LibFunc[] =
   {"ldg_ssl_free", "void ldg_ssl_free(ssl_context *ssl);\n", ldg_ssl_free}
 };
 
-LDGLIB LibLdg[] = { { 0x0009,  29, LibFunc,  "SSL/TLS functions from mbebTLS 1.3.x", 1} };
+LDGLIB LibLdg[] = { { 0x0009,  29, LibFunc,  "SSL/TLS functions from mbebTLS 1.3.22", 1} };
 
 /* main function: init and memory configuration */
 

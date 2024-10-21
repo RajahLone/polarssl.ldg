@@ -19,7 +19,7 @@ Other programs can use it, please read the how-to and functions calls in the st-
 - in an empty folder,  
    ```mkdir ./build/68000```  
    ```mkdir ./build/68020```  
-   ```mkdir ./build/ColfFire```  
+   ```mkdir ./build/ColdFire```  
 
 - get [polarssl_r9_src.zip](https://ptonthat.fr/files/polarssl/polarssl_r9_src.zip) and unpack the contents of /polarssl.ldg/ to  
    ```./README.md```  
