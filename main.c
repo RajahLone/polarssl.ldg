@@ -495,8 +495,6 @@ LDGLIB LibLdg[] = { { 0x0009,  29, LibFunc,  "SSL/TLS functions from mbebTLS 1.3
 int main(void)
 {
   ldg_init(LibLdg);
-
-  platform_set_malloc_free((void *)ldg_Malloc, (void *)ldg_Free);
   
 #if defined(POLARSSL_DEBUG_C)
   (void)Cconws("Polarssl.ldg (");
