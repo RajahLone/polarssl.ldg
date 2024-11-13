@@ -21,7 +21,7 @@ Other programs can use it, please read the how-to and functions calls in the st-
    ```mkdir ./build/68020```  
    ```mkdir ./build/ColdFire```  
 
-- get [polarssl_r9_src.zip](https://ptonthat.fr/files/polarssl/polarssl_r9_src.zip) and unpack the contents of /polarssl.ldg/ to  
+- get [polarssl.ldg.r9.zip](https://ptonthat.fr/files/polarssl/sources/polarssl.ldg.r9.zip) and unpack the contents of /polarssl.ldg/ to  
    ```./README.md```  
    ```./Makefile```  
    ```./main.c```  
